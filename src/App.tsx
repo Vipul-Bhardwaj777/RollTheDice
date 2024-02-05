@@ -13,6 +13,12 @@ import diceThree from '../assets/diceImages/Three.png';
 import diceFour from '../assets/diceImages/Four.png';
 import diceFive from '../assets/diceImages/Five.png';
 import diceSix from '../assets/diceImages/Six.png';
+import {trigger} from 'react-native-haptic-feedback';
+
+const options = {
+  enableVibrateFallback: true,
+  ignoreAndroidSystemSettings: false,
+};
 
 type DiceProps = PropsWithChildren<{
   imgUrl: ImageSourcePropType;
@@ -57,6 +63,7 @@ const App = () => {
 
         break;
     }
+    trigger('impactHeavy', options);
   };
 
   return (
